@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<body>
+<title>Awesome Restaurant</title>
+
+<h1>Restaurant Order Awesomeness</h1>
+
+<p>
+  <% if current_user %>
+    Logged in as <%= current_user.username %>
+    <a href="/auth/logout">Log Out</a></p>
+  <% else %>
+
+    <a href="/auth/login">Log In</a><br>
+    <a href="/auth/register">Register</a><br>
+  <% end %>
+
+  <% if flash[:success] %>
+    <div style="color:green;">
+      <%= flash[:success] %>
+    </div>
+  <% end %>
+
+  <% if flash[:error] %>
+    <div style="color:red;">
+      <%= flash[:error] %>
+    </div>
+  <% end %>
+
+  <%= yield %>
+  </body>
+</html>
